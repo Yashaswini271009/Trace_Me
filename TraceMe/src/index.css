@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Base Reset ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #0A0A0F;
+  color: #F1F1F1;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0A0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E1E2E;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF4444;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: rgba(255, 68, 68, 0.3);
+  color: #F1F1F1;
+}
+
+/* ===== Glassmorphism Utility ===== */
+.glass {
+  background: rgba(18, 18, 26, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(30, 30, 46, 0.6);
+}
+
+.glass-strong {
+  background: rgba(18, 18, 26, 0.8);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(30, 30, 46, 0.8);
+}
+
+/* ===== Glow Effects ===== */
+.glow-red {
+  box-shadow: 0 0 20px rgba(255, 68, 68, 0.15);
+}
+
+.glow-red-hover:hover {
+  box-shadow: 0 0 30px rgba(255, 68, 68, 0.25);
+}
+
+.text-glow {
+  text-shadow: 0 0 40px rgba(255, 68, 68, 0.3);
+}
+
+/* ===== Gradient Text ===== */
+.gradient-text {
+  background: linear-gradient(135deg, #FF4444, #FF8C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-white {
+  background: linear-gradient(135deg, #FFFFFF, #8888AA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Grid Background ===== */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(30, 30, 46, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 30, 46, 0.3) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ===== Animated Gradient Border ===== */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #FF4444, #FF8C00, #FF4444);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ===== Scanning Line ===== */
+.scan-line {
+  position: relative;
+  overflow: hidden;
+}
+.scan-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FF4444, transparent);
+  animation: scan 3s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes scan {
+  0% { top: -2px; }
+  100% { top: 100%; }
+}
+
+/* ===== Noise Overlay ===== */
+.noise-overlay {
+  position: relative;
+}
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+/* ===== React Flow Overrides ===== */
+.react-flow__background {
+  background-color: transparent !important;
+}
+.react-flow__edge-path {
+  stroke: #FF4444 !important;
+  stroke-width: 2 !important;
+}
+.react-flow__controls {
+  background: #12121A !important;
+  border: 1px solid #1E1E2E !important;
+  border-radius: 8px !important;
+}
+.react-flow__controls-button {
+  background: #12121A !important;
+  border-color: #1E1E2E !important;
+  fill: #8888AA !important;
+}
+.react-flow__controls-button:hover {
+  background: #1E1E2E !important;
+  fill: #FF4444 !important;
+}
+.react-flow__attribution {
+  display: none !important;
+}
+
+/* ===== Pulse Animation for Nodes ===== */
+@keyframes nodePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(255, 68, 68, 0); }
+}
+
+.node-pulse {
+  animation: nodePulse 2s infinite;
+}
+
+/* ===== Loading Skeleton ===== */
+.skeleton {
+  background: linear-gradient(90deg, #12121A 25%, #1E1E2E 50%, #12121A 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
