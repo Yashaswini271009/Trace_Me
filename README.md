@@ -10,19 +10,19 @@ In reality, attackers often rely on *Open Source Intelligence (OSINT)* technique
 TraceMe makes this invisible process visible.
 
 ## Features
--🌐 Digital Exposure Map
+1. 🌐 Digital Exposure Map
 Interactive graph visualization showing how information is exposed across different online platforms.
--📅 Stalker's Timeline
+2. 📅 Stalker's Timeline
 A realistic 7-day simulation demonstrating how an attacker can gradually build a complete profile using publicly available data.
--📊 Risk Score Dashboard
+3. 📊 Risk Score Dashboard
 Measures exposure across multiple categories:
 ---Location Exposure
 ---Identity Exposure
 ---Routine Exposure
 ---Social Network Exposure
--✅ Protection Checklist
+4. ✅ Protection Checklist
 Provides actionable recommendations to reduce digital exposure and improve online privacy.
--📱 Shareable Awareness Card
+5. 📱 Shareable Awareness Card
 Generate a personalized summary card that can be shared on LinkedIn and other platforms to spread cybersecurity awareness.
 
 ## How It Works
